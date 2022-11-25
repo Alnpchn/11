@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+#include<stdlib.h>
+#define _CRT_SECURE_NO_DEPRECATE
+#define L 10
+#define D 100
+float main()
+{
+	float A[L];
+	float temp;
+	int i;
+	float y = 0;
+	float xx = 0;
+	float x = 2;
+	double jj = 0;
+	int g1 = 0;
+	int g3 = 0;
+	int g = 0;
+	int g2 = 0;
+	float R[D];
+	float F;
+	setlocale(0, "RUS");
+	/*for (int i = 0; i < L; i++)
+	{
+		printf("a[%d] = ", i + 1);
+		scanf("%f", &temp);
+		A[i] = temp;
+	}
+	printf("\n-----------------------------------------------\n""| индекс | исходное значение | новое значение |\n""-----------------------------------------------\n");
+	for (int i = 0; i < L; i++)
+	{
+		printf("| %6d | %17.4f | ", i, A[i]);
+		if (A[i] < 0) A[i] = 0;
+		printf("%14.4f |\n", A[i]);
+	}
+	printf("-----------------------------------------------\n");
+	printf("\n");
+
+	float sum = 0;
+	for (int i = 0; i < L; i++)
+		sum += A[i];
+	float middle = sum / L;
+	printf("Среднее арифметическое A[%d]=%g\n", L, middle);
+	puts("\n");*/
+
+	printf(" функция y=1.8x^2-sin10x с интервалом [0.2; 2.2]\n");
+	scanf("%d", &F);
+	for (i = 0; i < D; i++)
+	{
+		R[i] = 1.8 * (float)pow(x, 2) - (float)sin(10 * x);
+		if (R[i] >= 0)
+		{
+			g2 += R[i];
+			g1 += 1;
+		}
+		else {
+		
+			g += R[i];
+			g3 += 1;
+		}
+		x += F;
+		jj = g2 / 100;
+	}
+
+	printf("Количество положительных чисел %f\n", g2);
+	printf("количество отрицательных чисел %f\n", g);
+	printf("имя массива: R\n");
+	printf("накопленное положительное значение %f\n", g1);
+	printf("накопленное отрицательное значение %f\n", g3);
+	return 0;
+}
