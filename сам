@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include<locale.h>
+#include <stdlib.h>
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    int n, i;
+    float summ = 0;
+    float count = 0;
+    printf("Введите количество элементов массива: ");
+    scanf_s("%d", &n);
+    int*a = malloc(n*sizeof(int));
+    for (i = 0; i < n; i++) 
+    {
+        printf("a[%d]=", i);
+        scanf_s("%d", &a[i]);
+    }
+    for (i = 2; i < n; i += 2) 
+    {
+        summ += a[i];
+        count += 1;
+    }
+   
+    float result = summ / count;
+    printf("Среднее значение элементов на четных позициях(за исключением нулевого): %lf", result);
+}
